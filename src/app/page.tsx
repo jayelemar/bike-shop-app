@@ -8,7 +8,7 @@ const Home =  () => {
       <main>
         Main.tsx
         <PopularBikes />
-
+        <div className="h-[2000px]"></div>
       </main>
     );
 
