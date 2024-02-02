@@ -57,16 +57,16 @@ const ProductDetails:FC<ProductDetailsProps> = async ({ params }) => {
               </div>
               <p>{bike.description}</p>
               <AddToCartBtn 
+                price_id={bike.price_id}
                 name={bike.name}
                 currency='PHP'
                 description={bike.description}
                 images={bike.images}
                 price={bike.price}
-                btnStyles='btn btn-accent' 
                 text='Add to cart'
-                price_id={bike.price_id}
-                icon=''
                 id={bike._id}
+                icon=''
+                btnStyles='btn btn-accent' 
               />
                 
 
