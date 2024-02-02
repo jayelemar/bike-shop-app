@@ -1,5 +1,4 @@
 'use client';
-
 import { FC, ReactNode } from 'react';
 import { CartProvider as CProvider} from 'use-shopping-cart'
 
@@ -24,5 +23,4 @@ const CartProvider:FC<CartProviderProps> = ({ children }) => {
     </CProvider>
   )
 }
-
 export default CartProvider

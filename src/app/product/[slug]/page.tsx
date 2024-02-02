@@ -15,8 +15,19 @@ interface ProductDetailsProps {
 
 const ProductDetails:FC<ProductDetailsProps> = async ({ params }) => {
   const bike = await getProductData(params.slug);
+  console.log(bike);
+
   if (!bike) {
     return null
+  } else {
+    const {
+      _id, //
+      name, //
+      description, //
+      images, //
+      price, //
+      price_id, //
+    } = bike
   }
 
   return (
@@ -45,7 +56,21 @@ const ProductDetails:FC<ProductDetailsProps> = async ({ params }) => {
                 <p className='text-lg font-semibold'>&#8369;{bike.price}</p>
               </div>
               <p>{bike.description}</p>
-              <AddToCartBtn btnStyles='btn btn-accent' text='Add to Cart' icon=''/>
+              <AddToCartBtn 
+                name={bike.name}
+                currency='PHP'
+                description={bike.description}
+                images={bike.images}
+                price={bike.price}
+                btnStyles='btn btn-accent' 
+                text='Add to cart'
+                price_id={bike.price_id}
+                icon=''
+                id={bike._id}
+              />
+                
+
+
             </div>
             {/* info */}
             <div className="flex flex-col gap-3">
