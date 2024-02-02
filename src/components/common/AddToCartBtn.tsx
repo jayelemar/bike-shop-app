@@ -10,7 +10,7 @@ type AddToCartProps = {
   images: string, 
   price: number, 
   btnStyles: string;
-  text?: string,
+  text: string,
   icon: ReactNode,
   id: string,
   price_id: string,
@@ -50,6 +50,8 @@ const AddToCartBtn:FC<AddToCartProps> = ({
     sku: generatedSKU,
     price_id
   }
+  
+  console.log(bike);
 
   return (
     <button 
