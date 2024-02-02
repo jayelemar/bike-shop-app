@@ -2,6 +2,7 @@
 
 import React, { FC, ReactNode } from 'react'
 import { useShoppingCart } from 'use-shopping-cart';
+import { useToast } from '../ui/use-toast';
 
 type AddToCartProps = {
   name: string,
@@ -12,7 +13,8 @@ type AddToCartProps = {
   btnStyles: string;
   text?: string,
   icon: ReactNode,
-  id: string
+  id: string,
+  price_id: string,
 }
 
 const AddToCartBtn:FC<AddToCartProps> = ({ 
@@ -25,9 +27,13 @@ const AddToCartBtn:FC<AddToCartProps> = ({
   text, 
   icon, 
   id,
+  price_id
 }) => {
   
   const { addItem } = useShoppingCart()
+  const { toast } = useToast();
+
+
   const generateSKU = () => {
     return `${name}-${id}`;
   };
@@ -35,22 +41,28 @@ const AddToCartBtn:FC<AddToCartProps> = ({
   const generatedSKU = generateSKU()
 
   const handleAddToCart = () => {
-    addItem(bike)
+    addItem({...bike, count:1})
+    toast({
+      title: `${name} has been added to the cart`
+    })
   }
-  
+
+
   const bike = {
     name: name,
     currency: currency,
     description: description,
     images: images,
     price: price,
-    sku: generatedSKU
+    sku: generatedSKU,
+    price_id: price_id,
   }
 
 
   return (
     <button 
       onClick={() => handleAddToCart()}
+      
       className={`${btnStyles}`}
     >
       <div className="">{text}</div>

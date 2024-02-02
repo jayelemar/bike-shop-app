@@ -21,6 +21,7 @@ type BikeProps = {
     price: number,
     slug: string,
     categories: Category[],
+    price_id: string,
   }
 }
 
@@ -55,6 +56,7 @@ const Bike:FC<BikeProps> = ({ bike }) => {
               btnStyles='btn btn-icon btn-accent' 
               icon={<CgShoppingBag/>}
               id={bike._id}
+              price_id={bike.price_id}
             />
             <Link href={`/product/${bike.slug}`}>
               <button title={`${bike.slug}`} className='btn-icon btn-primary'><CgEye/></button>

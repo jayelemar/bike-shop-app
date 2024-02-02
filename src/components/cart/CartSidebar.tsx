@@ -1,5 +1,6 @@
 "use client";
-import CartItem from "./CartItem";
+
+import CheckoutBtn from "../common/CheckoutBtn";
 
 import {
   Sheet,
@@ -7,30 +8,41 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet"
-import { ScrollArea } from "@radix-ui/react-scroll-area";
+
 import { useShoppingCart } from "use-shopping-cart";
 
+import CartList from "./CartList";
+
 const CartSidebar = () => {
-  const { cartCount, cartDetails, shouldDisplayCart, handleCartClick, totalPrice} = useShoppingCart()
+  const { cartCount, shouldDisplayCart, handleCartClick, totalPrice} = useShoppingCart()
+
   return (
-    <div>
+    <div >
       <Sheet 
         open={shouldDisplayCart} 
         onOpenChange={() => handleCartClick()}
       >
-        <SheetContent className="bg-white">
-          <SheetHeader>
-            <SheetTitle className="text-left mb-12">My Shopping Cart ({cartCount})</SheetTitle>
+        <SheetContent className="bg-white ">
+          <SheetHeader className="">
+            <SheetTitle className="text-left">
+              My Shopping Cart ({cartCount})
+            </SheetTitle>
           </SheetHeader>
-          <>
-            {cartCount === 0 ? <div>Your cart is empty</div> 
-              : <ScrollArea>
-                  {cartDetails && Object.entries(cartDetails).map(([key, item]) => {
-                    return <CartItem key={key} item={item}/>
-                  })}
-                </ScrollArea>
+
+          <div className="h-full relative">
+            <CartList/>
+
+            {cartCount && cartCount > 0 && 
+              <div className="flex flex-col justify-center items-center absolute w-full bottom-4 z-10">
+                <div className="flex justify-between font-semibold w-full ">
+                  <div className="uppercase mb-1">Total</div>
+                  <div className="">&#8369;{totalPrice}</div>
+                </div>
+                <CheckoutBtn/>
+              </div>
             }
-          </>
+
+          </div>
         </SheetContent>
       </Sheet>
     </div>

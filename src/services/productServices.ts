@@ -1,5 +1,5 @@
 import { client } from "@/app/lib/sanity";
-import { Product, ProductData } from "@/types/types";
+import { Product } from "@/types/types";
 ;
 
 
@@ -28,7 +28,7 @@ _id,
 
 
 
-export const getProductData = async (slug: string): Promise<ProductData | null> => {
+export const getProductData = async (slug: string): Promise<Product | null> => {
   if (!slug) {
     return null; 
   }
