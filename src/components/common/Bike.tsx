@@ -1,17 +1,14 @@
+
 'use client'
-
 import AddToCartBtn from './AddToCartBtn'
-
 import React, { FC } from 'react'
 import { urlFor } from '@/app/lib/sanity'
 import Image from 'next/image'
 import Link from 'next/link'
 import { CgEye, CgShoppingBag } from 'react-icons/cg'
-
 type Category = {
   name: string,
 }
-
 type BikeProps = {
   bike: {
     _id: string,
@@ -24,7 +21,6 @@ type BikeProps = {
     price_id: string,
   }
 }
-
 const Bike:FC<BikeProps> = ({ bike }) => {
   const popularBikeCat = bike.categories.find((cat) => cat.name === 'popular' );
   return (
@@ -48,6 +44,7 @@ const Bike:FC<BikeProps> = ({ bike }) => {
         {/* btn group */}
         <div className="absolute top-0 right-0 left-0 bottom-0 flex justify-center items-center gap-[10px] opacity-0 group-hover:opacity-100 transition-all duration-300">
             <AddToCartBtn 
+              id={bike._id}
               name={bike.name}
               currency='PHP'
               description={bike.description}
@@ -55,7 +52,6 @@ const Bike:FC<BikeProps> = ({ bike }) => {
               price={bike.price}
               btnStyles='btn btn-icon btn-accent' 
               icon={<CgShoppingBag/>}
-              id={bike._id}
               price_id={bike.price_id}
             />
             <Link href={`/product/${bike.slug}`}>
@@ -69,5 +65,4 @@ const Bike:FC<BikeProps> = ({ bike }) => {
     </div>
   )
 }
-
 export default Bike

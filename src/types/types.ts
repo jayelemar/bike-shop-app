@@ -1,7 +1,7 @@
+
 interface Category {
   name: string,
 }
-
 export interface Product {
   _id: string,
   name: string,
@@ -12,5 +12,6 @@ export interface Product {
   categories: Category[],
   price_id: string
 }
-
-
+export interface ProductData extends Product {
+  price_id: string,
+}
