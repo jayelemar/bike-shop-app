@@ -3,6 +3,7 @@ import Link from "next/link";
 import PopularBikeCarousel from "./PopularBikeCarousel";
 
 
+
 const PopularBikes = async () => {
   const bikes = await getData()
 

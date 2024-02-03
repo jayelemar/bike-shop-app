@@ -53,13 +53,14 @@ const Bike:FC<BikeProps> = ({ bike }) => {
               btnStyles='btn btn-icon btn-accent' 
               icon={<CgShoppingBag/>}
               price_id={bike.price_id}
+              text=''
             />
             <Link href={`/product/${bike.slug}`}>
               <button title={`${bike.slug}`} className='btn-icon btn-primary'><CgEye/></button>
             </Link>
         </div>
       </div>
-      <h5 className='text-grey-400 font-semibold mb-2 text-start'>{bike.categories[0].name} bike</h5>
+      <h5 className='text-slate-400 font-semibold mb-2 text-start'>{bike.categories[0].name} bike</h5>
       <h4 className='mb-1 text-start'>{bike.name}</h4>
       <div className='text-lg font-bold text-accent text-start'>&#8369;{bike.price}</div>
     </div>

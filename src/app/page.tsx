@@ -1,12 +1,13 @@
 
-import PopularBikes from '@/components/common/PopularBikes';
+import Hero from '@/components/common/Hero';
+import PopularBikes from '@/components/common/popularBike/PopularBikes';
 import React from 'react';
 
 const Home =  () => {
 
     return (
       <main>
-        Main.tsx
+        <Hero/>
         <PopularBikes />
         <div className="h-[2000px]"></div>
       </main>
