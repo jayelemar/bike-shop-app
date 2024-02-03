@@ -6,8 +6,6 @@ import Nav from '../common/Nav'
 import CartSidebar from '../cart/CartSidebar'
 import { useShoppingCart } from 'use-shopping-cart'
 
-
-
 const Header = () => {
   const { cartCount, handleCartClick } = useShoppingCart()
 
@@ -15,12 +13,12 @@ const Header = () => {
     <header className='bg-white shadow-lg sticky top-0 py-8 z-40'>
       <div className="container mx-auto flex justify-between items-center">
         <Link href='/' className='hover:text-current'>
-          <h1 className='text-[26px]'>
+          <h1 className='text-3xl'>
             <span className='text-accent'>B</span>ike Me
           </h1>
         </Link>
         <div className="flex items-center gap-7">
-          <Nav/>
+          <Nav containerStyles='flex gap-9'/>
           <div 
             onClick={() => handleCartClick()}
             className="relative cursor-pointer"

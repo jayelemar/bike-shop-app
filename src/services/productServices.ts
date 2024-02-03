@@ -1,22 +1,20 @@
 import { client } from "@/app/lib/sanity";
 import { Product } from "@/types/types";
-;
-
 
 export const getData = async (): Promise<Product[]> => {
   const query = `
-*[_type == 'product' && references(*[_type == 'category' && name == 'popular']._id, categories) ]{
-_id,
-  name,
-  description,
-  images,
-  price,
-  price_id,
-  "slug": slug.current,
-  "categories": categories[]->{
-    name
-  }
-}
+    *[_type == 'product' && references(*[_type == 'category' && name == 'popular']._id, categories) ]{
+      _id,
+      name,
+      description,
+      images,
+      price,
+      price_id,
+      "slug": slug.current,
+      "categories": categories[]->{
+        name
+      }
+    }
   `;
   try {
     const data = await client.fetch(query);
@@ -45,9 +43,34 @@ export const getProductData = async (slug: string): Promise<Product | null> => {
     }
   `;
 
+  try {
+    const data = await client.fetch(query);
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};
 
+export const getOurBikes = async (): Promise<Product[]> => {
+  const query = `
+    *[ _type == 'product']{
+      _id,
+      images,
+      price,
+      price_id,
+      name,
+      description,
+      "slug": slug.current,
+      "categories": categories[]->{name}
+    }
+  `;
+
+  try {
     const data = await client.fetch(query);
     return data;
 
+  } catch (error) {
+    throw error;
+  }
 };
 

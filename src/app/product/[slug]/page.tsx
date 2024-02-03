@@ -15,18 +15,17 @@ interface ProductDetailsProps {
 
 const ProductDetails:FC<ProductDetailsProps> = async ({ params }) => {
   const bike = await getProductData(params.slug);
-  console.log(bike);
 
   if (!bike) {
     return null
   } else {
     const {
-      _id, //
-      name, //
-      description, //
-      images, //
-      price, //
-      price_id, //
+      _id, 
+      name, 
+      description, 
+      images, 
+      price, 
+      price_id, 
     } = bike
   }
 

@@ -29,7 +29,7 @@ const AddToCartBtn:FC<AddToCartProps> = ({
 }) => {
   const { addItem } = useShoppingCart()
   const { toast } = useToast();
-
+  
   const generateSKU = () => {
     return `${name}-${id}`;
   };
@@ -51,8 +51,6 @@ const AddToCartBtn:FC<AddToCartProps> = ({
     price_id
   }
   
-  console.log(bike);
-
   return (
     <button 
       onClick={() => handleAddToCart()}
