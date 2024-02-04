@@ -20,7 +20,7 @@ const PopularBikes = async () => {
           <button className="btn btn-accent mx-auto">See all bikes</button>
         </Link>
       </div>
-      Popular Bikes 
+
     </section>
   )
 };
