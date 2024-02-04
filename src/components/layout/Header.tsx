@@ -10,7 +10,7 @@ const Header = () => {
   const { cartCount, handleCartClick } = useShoppingCart()
 
   return (
-    <header className='bg-white shadow-lg sticky top-0 py-8 z-40 w-full'>
+    <header className='bg-white shadow-lg sticky top-0 py-4 z-40 w-full'>
       <div className="container flex justify-between items-center px-6 lg:px-8">
         <Link href='/' className='hover:text-current'>
           <h1 className='text-3xl'>
