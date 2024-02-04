@@ -1,20 +1,19 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-Link
 
 const Hero = () => {
   return (
-    <section className='py-20 md:py-0 md:h-[550px] relative overflow-hidden bg-primary/5'>
+    <section className='py-0 h-[520px] relative overflow-hidden bg-primary/5'>
       <div className="container flex justify-center items-center w-full">
         <div className="flex items-center justify-center">
           {/* text */}
-          <div className="w-full lg:max-w-[580px] md:h-[550px] flex flex-col justify-center items-start">
-            <h1 className='slogan text-center lg:text-[60px] xl:text-[80px] lg:text-left mb-6'>
-              Where <span>Joyful</span> Cycling Begins
+          <div className="w-full lg:max-w-[580px] h-[520px]  flex flex-col justify-center items-start">
+            <h1 className='slogan text-center lg:text-[60px] xl:text-[77px] lg:text-left mb-6'>
+            Bike <span className='whitespace-nowrap'>The Streets,</span> <span className='whitespace-nowrap'>Enjoy the</span> ride.
             </h1>
             <p className='mb-10 text-lg max-w-[500px] mx-auto text-center lg:text-left lg:mx-0'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, explicabo .
+              Whether for recreation or transportation, we’ve designed the right bike for you. 
             </p>
             {/* btn group */}
             <div className="flex items-center gap-4 mx-auto lg:mx-0">
