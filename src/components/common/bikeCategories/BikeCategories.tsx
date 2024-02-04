@@ -20,7 +20,7 @@ const BikeCategories:FC<BikeCategoriesProps> = ({ bikes }) => {
   return (
     <section className="min-h-[1200px] py-10">
       <div className="container mx-auto">
-        <div className="flex flex-col">
+        <div className="flex flex-col lg:flex-row">
           {/* Sidebar */}
             <BikeCategoriesSidebar bikes={bikes} />
           {/* Bike List */}

@@ -27,7 +27,7 @@ const BikeCategoriesSidebar:FC<BikeCategoriesSidebarProps> = ({ bikes }) => {
   }, [category,price, bikes, setFilteredBikes])
   
   return (
-    <aside className="w-full p-4 mb-8 xl:w-[300px] xl:h-[84vh] xl:fixed">
+    <aside className="w-full p-4 mb-8 lg:w-[300px] lg:h-[84vh] rounded-t lg:fixed">
       <RadioGroup defaultValue="all" className="flex flex-col gap-6 mb-12">
 
         <div className="flex items-center space-x-2">
