@@ -7,9 +7,11 @@ const Home =  () => {
 
     return (
       <main>
+
         <Hero/>
+
+  
         <PopularBikes />
-        <div className="h-[2000px]"></div>
       </main>
     );
 
