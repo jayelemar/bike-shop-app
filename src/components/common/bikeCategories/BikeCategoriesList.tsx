@@ -6,7 +6,7 @@ const BikeCategoriesList = () => {
   const {filteredBikes} = useBikeStore()
 
   return (
-    <div className="w-full lg:w-[800px] 2xl:w-[1050px] ml-auto">
+    <div className="w-full xl:w-[940px] 2xl:w-[1050px] ml-auto z-0">
       <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-7">
         {filteredBikes.map((bike, index) => {
             return (

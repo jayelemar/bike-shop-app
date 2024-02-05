@@ -4,8 +4,10 @@ import {RiYoutubeFill, RiFacebookBoxFill, RiInstagramFill, RiPinterestFill, RiTw
 
 const Footer = () => {
   return (
-    <footer className="pt-12 xl:pt-24 bg-primary text-white text-center">
+    <footer className="pt-12 xl:pt-24 bg-primary text-white text-center z-50">
       <div className="container mx-auto">
+
+        
         <div className="flex flex-col gap-8">
           <div className="">
             <h2 className="capitalize leading-tight mb-2">
