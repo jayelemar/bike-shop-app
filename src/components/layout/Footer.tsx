@@ -1,13 +1,30 @@
+'use client';
 import Link from "next/link"
 import { Input } from "../ui/input"
 import {RiYoutubeFill, RiFacebookBoxFill, RiInstagramFill, RiPinterestFill, RiTwitterFill} from 'react-icons/ri'
+import { MouseEvent, useState } from "react";
+import { toast } from "../ui/use-toast";
 
 const Footer = () => {
-  return (
-    <footer className="pt-12 xl:pt-24 bg-primary text-white text-center z-50">
-      <div className="container mx-auto">
+  const [email, setEmail] = useState('');
 
-        
+  const handleSubmit = (e:MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    if(email.length >= 2) {
+      toast({
+        title:"Thank you for your subscription!",
+        description: "You will recieve the next issue of our newsletter shortly",
+      });
+    } else {
+      toast({
+        title:"Error",
+        description: "Email Address must be at least 2 characters.",
+      });
+    }
+  };
+  return (
+    <footer className="pt-12 xl:pt-24 bg-primary text-white text-center z-[1000]">
+      <div className="container mx-auto">        
         <div className="flex flex-col gap-8">
           <div className="">
             <h2 className="capitalize leading-tight mb-2">
@@ -16,10 +33,15 @@ const Footer = () => {
             <p className="text-white/60">Be the first to get the latest news about trends, promotions and more!</p>
           </div>
           {/* form */}
-          <form action="" className="flex flex-col xl:flex-row w-full max-w-[720px] mx-auto gap-5">
-            <Input placeholder="Your email address"></Input>
-            <button className="btn w-full xl:max-w-[150px] h-[60px] btn-accent ">Join</button>
-          </form>
+          <div className="flex flex-col lg:flex-row gap-4 mx-6 lg:mx-16 justify-center items-center">
+          <Input 
+            className="w-full lg:w-3/5"
+            placeholder="Your email address" 
+            onChange={(e) => setEmail(e.target.value)} 
+          />
+            <button onClick={(e) => handleSubmit(e)} className="btn w-full lg:max-w-[150px] h-[60px] btn-accent ">Join</button>
+          </div>
+
           {/* socials */}
           <div className="flex gap-8 mx-auto text-[30px] text-white/60 mb-20">
             <Link href='/'>
