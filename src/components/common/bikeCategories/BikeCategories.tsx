@@ -1,13 +1,11 @@
 'use client';
 
 import { Product } from "@/types/types";
-import { FC, useEffect, useState } from "react";
-import { RadioGroup, RadioGroupItem } from "../../ui/radio-group";
-import { Label } from "../../ui/label";
-import { Slider } from "../../ui/slider";
+import { FC } from "react";
+
 import Bike from "../Bike";
 import BikeCategoriesSidebar from "./BikeCategoriesSidebar";
-import { useBikeStore } from "@/store/bikeStore";
+
 import BikeCategoriesList from "./BikeCategoriesList";
 
 
@@ -21,12 +19,17 @@ const BikeCategories:FC<BikeCategoriesProps> = ({ bikes }) => {
     <section className="min-h-[1200px] py-10">
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row relative">
+
           {/* Sidebar */}
-          <div className="-z-10">
+          <div className="">
             <BikeCategoriesSidebar bikes={bikes} />
           </div>
+
           {/* Bike List */}
+          <div className="">
             <BikeCategoriesList />
+          </div>
+
         </div>
       </div>
     </section>

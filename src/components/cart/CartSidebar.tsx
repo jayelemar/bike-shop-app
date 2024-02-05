@@ -32,14 +32,14 @@ const CartSidebar = () => {
           <div className="h-full relative">
             <CartList/>
 
-            {cartCount && cartCount > 0 && 
-              <div className="flex flex-col justify-center items-center absolute w-full bottom-4 z-10">
+            {cartCount && cartCount > 0 ? 
+              (<div className="flex flex-col justify-center items-center absolute w-full bottom-4 z-10">
                 <div className="flex justify-between font-semibold w-full ">
                   <div className="uppercase mb-1">Total</div>
                   <div className="">&#8369;{totalPrice}</div>
                 </div>
                 <CheckoutBtn/>
-              </div>
+              </div>) : null
             }
 
           </div>

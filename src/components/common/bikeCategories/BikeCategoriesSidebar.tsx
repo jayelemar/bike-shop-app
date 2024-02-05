@@ -12,7 +12,6 @@ type BikeCategoriesSidebarProps = {
 const BikeCategoriesSidebar:FC<BikeCategoriesSidebarProps> = ({ bikes }) => {
   const [category, setCategory] = useState('all')
   const [price, setPrice] = useState(90000)
-
   const { filteredBikes, setFilteredBikes } = useBikeStore()
   
   useEffect(() => {
@@ -27,10 +26,9 @@ const BikeCategoriesSidebar:FC<BikeCategoriesSidebarProps> = ({ bikes }) => {
   }, [category,price, bikes, setFilteredBikes])
   
   return (
-    <aside className="w-full p-4 mb-8 xl:w-[300px] 2xl:h-[84vh] rounded-t xl:fixed z-0">
+    <aside className="w-full p-4 mb-8 xl:w-[300px] xl:h-[10vh] xl:mb-[1000px]">
       <RadioGroup defaultValue="all" className="flex flex-col gap-6 mb-12">
-
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center gap-2">
           <RadioGroupItem 
             value="all" 
             id="all" 
@@ -62,7 +60,6 @@ const BikeCategoriesSidebar:FC<BikeCategoriesSidebarProps> = ({ bikes }) => {
           />
           <Label htmlFor="extreme">Extreme</Label>
         </div>
-
       </RadioGroup>
       {/* Price Slider */}
       <div className="max-w-56">
@@ -89,5 +86,4 @@ const BikeCategoriesSidebar:FC<BikeCategoriesSidebarProps> = ({ bikes }) => {
     </aside>
   )
 }
-
 export default BikeCategoriesSidebar

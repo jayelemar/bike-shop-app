@@ -27,7 +27,7 @@ const Hero = () => {
           </div>
           {/* image */}
           <div className="hidden lg:flex">
-            <Image src='/hero/bike.png' width={765} height={480} alt='' quality={100}  />
+            <Image src='/hero/bike.png' width={765} height={480} alt='' quality={100} priority />
           </div>
         </div>
       </div>

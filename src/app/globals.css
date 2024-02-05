@@ -56,3 +56,7 @@
 .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
   @apply bg-accent; 
 }
+
+.grid-rows-layout {
+  grid-template-rows: auto 1fr auto auto;
+}
