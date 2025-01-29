@@ -1,26 +1,31 @@
-'use client';
-import { FC, ReactNode } from 'react';
-import { CartProvider as CProvider} from 'use-shopping-cart'
+"use client";
+import { FC, ReactNode } from "react";
+import { CartProvider as CProvider } from "use-shopping-cart";
 
 type CartProviderProps = {
-  children: ReactNode
-}
+  children: ReactNode;
+};
 
-const CartProvider:FC<CartProviderProps> = ({ children }) => {
+const CartProvider: FC<CartProviderProps> = ({ children }) => {
+  const baseUrl =
+    process.env.NODE_ENV === "development"
+      ? process.env.NEXT_PUBLIC_LOCAL_URL
+      : process.env.NEXT_PUBLIC_FRONT_END_URL;
+
   return (
-    <CProvider 
-      mode='payment' 
-      cartMode='client-only' 
-      stripe={process.env.NEXT_PUBLIC_STRIPE_KEY ?? ''}
-      successUrl='http://localhost:3000/stripe/success'
-      cancelUrl='http://localhost:3000/stripe/error'
-      language='en-US'
-      currency='PHP'
+    <CProvider
+      mode="payment"
+      cartMode="client-only"
+      stripe={process.env.NEXT_PUBLIC_STRIPE_KEY ?? ""}
+      successUrl={`${baseUrl}/stripe/success`}
+      cancelUrl={`${baseUrl}/stripe/error`}
+      language="en-US"
+      currency="PHP"
       billingAddressCollection={true}
       shouldPersist={true}
     >
-      { children }
+      {children}
     </CProvider>
-  )
-}
-export default CartProvider
+  );
+};
+export default CartProvider;
