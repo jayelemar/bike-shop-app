@@ -10,15 +10,15 @@ type BikeCategoriesSidebarProps = {
 }
 
 const BikeCategoriesSidebar:FC<BikeCategoriesSidebarProps> = ({ bikes }) => {
+  const maxPrice = Math.max(0, ...bikes.map((bike) => bike.price))
   const [category, setCategory] = useState('all')
-  const [price, setPrice] = useState(90000)
+  const [price, setPrice] = useState(maxPrice)
   const { filteredBikes, setFilteredBikes } = useBikeStore()
   
   useEffect(() => {
     const newFilteredBikes = bikes.filter((bike) => {
-      const categoryMatch = (category === 'all') 
-        ? bikes 
-        : bike.categories.some((cat) => cat.name === category)
+      const categoryMatch = category === 'all'
+        || bike.categories.some((cat) => cat.name === category)
       const priceMatch = bike.price <= price;
       return categoryMatch && priceMatch
     })
@@ -77,8 +77,8 @@ const BikeCategoriesSidebar:FC<BikeCategoriesSidebarProps> = ({ bikes }) => {
           </span>
         </div>
         <Slider 
-          defaultValue={[900000]} 
-          max={60_000} 
+          value={[price]}
+          max={maxPrice}
           step={1} 
           onValueChange={(value) => setPrice(value[0])}
         />
