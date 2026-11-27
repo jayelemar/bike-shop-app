@@ -31,7 +31,7 @@ export const getProductData = async (slug: string): Promise<Product | null> => {
     return null; 
   }
 
-  const query = `*[ _type == 'product' && slug.current == '${slug}' ][0]{
+  const query = `*[ _type == 'product' && slug.current == $slug ][0]{
       _id,
       images,
       price,
@@ -44,7 +44,7 @@ export const getProductData = async (slug: string): Promise<Product | null> => {
   `;
 
   try {
-    const data = await client.fetch(query);
+    const data = await client.fetch<Product | null>(query, { slug });
     return data;
   } catch (error) {
     throw error;
